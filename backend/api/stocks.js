@@ -2,9 +2,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-
+const cors = require('cors');
 app.use(express.json());
-
+app.use(cors());
 // Connecting to MongoDB 
 mongoose.connect("mongodb+srv://ashok7013:ashok7013@cluster0.v5nbxez.mongodb.net/?retryWrites=true&w=majority");
 
