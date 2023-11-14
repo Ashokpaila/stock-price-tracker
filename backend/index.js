@@ -20,7 +20,7 @@ const stockSchema = new mongoose.Schema({
 const Stock = mongoose.model('Stock', stockSchema);
 
 // Mock API  to Get Random Stock Prices
-app.get('/api/stocks', async (req, res) => {
+app.get('/apis/stocks', async (req, res) => {
   try {
     const stocks = await Stock.find();
     const updatedStocks = stocks.map((stock) => ({
