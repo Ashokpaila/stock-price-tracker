@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +20,7 @@ const stockSchema = new mongoose.Schema({
 const Stock = mongoose.model('Stock', stockSchema);
 
 // Mock API  to Get Random Stock Prices
-app.get('/apis/stocks', async (req, res) => {
+module.exports =async (req, res) => {
   try {
     const stocks = await Stock.find();
     const updatedStocks = stocks.map((stock) => ({
@@ -33,4 +32,4 @@ app.get('/apis/stocks', async (req, res) => {
     console.error(error);
     res.status(500).send('Internal Server Error');
   }
-});
+}
