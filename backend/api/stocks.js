@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
-app.use(cors());
+app.use(cors({origin: "https://stock-price-tracker-1m57.vercel.app"}));
 app.use(express.json());
 
 // Connecting to MongoDB 

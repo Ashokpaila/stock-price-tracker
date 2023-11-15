@@ -12,9 +12,7 @@ function App() {
   useEffect(() => {
     // Fetching the list of stocks from the backend
     fetch('https://stock-price-tracker-1m57.vercel.app/api/stocks',{
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      }})
+     })
       .then((response) => {
         setStocks(response.data);
         // Initially selecting the first stock in the list
