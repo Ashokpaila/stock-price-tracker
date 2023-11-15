@@ -2,7 +2,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const cors = require('cors');
 app.use(express.json());
 
 // Connecting to MongoDB 
@@ -26,7 +25,7 @@ module.exports =async (req, res) => {
       name: stock.name,
       price: stock.price + Math.random() * 10 - 5, //generating random price
     }));
-     // Set CORS headers
+     // Setting CORS headers
      res.setHeader('Access-Control-Allow-Origin', '*');
      res.setHeader('Access-Control-Allow-Methods', 'GET');
      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
