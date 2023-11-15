@@ -11,7 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     // Fetching the list of stocks from the backend
-    fetch('https://stock-price-tracker-1m57.vercel.app/api/stocks',{
+    axios.get('https://stock-price-tracker-1m57.vercel.app/api/stocks',{
      })
       .then((response) => {
         setStocks(response.data);
@@ -27,7 +27,7 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`https://stock-price-tracker-1m57.vercel.app/api/stocks`);
+      const response = await axios.get(`https://stock-price-tracker-1m57.vercel.app/api/stocks`);
       const selectedStockData = response.data.find((stock) => stock.name === selectedStock);
       if (selectedStockData) {
         setPrice(selectedStockData.price);

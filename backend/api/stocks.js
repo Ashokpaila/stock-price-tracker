@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
-app.use(cors({origin: "https://stock-price-tracker-1m57.vercel.app"}));
 app.use(express.json());
 
 // Connecting to MongoDB 
@@ -27,6 +26,10 @@ module.exports =async (req, res) => {
       name: stock.name,
       price: stock.price + Math.random() * 10 - 5, //generating random price
     }));
+     // Set CORS headers
+     res.setHeader('Access-Control-Allow-Origin', '*');
+     res.setHeader('Access-Control-Allow-Methods', 'GET');
+     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.json(updatedStocks);
   } catch (error) {
     console.error(error);
